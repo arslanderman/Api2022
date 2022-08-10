@@ -4,7 +4,7 @@ import base_urls.JasonPlaceHolderBaseUrl;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Test;
-import pojos.JsonPlaceHolderPojo;
+import get_requests.pojos.JsonPlaceHolderPojo;
 
 import static io.restassured.RestAssured.*;
 import static org.testng.AssertJUnit.assertEquals;
