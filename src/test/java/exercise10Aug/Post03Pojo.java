@@ -1,16 +1,16 @@
-package post_request;
+package exercise10Aug;
 
 import base_urls.JasonPlaceHolderBaseUrl;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Test;
-import pojos.pojos.JsonPlaceHolderPojo;
 
 import static io.restassured.RestAssured.*;
 import static org.testng.AssertJUnit.assertEquals;
 
 public class Post03Pojo extends JasonPlaceHolderBaseUrl {
-    /*
+
+     /*
     Given
             https://jsonplaceholder.typicode.com/todos
             {
@@ -30,28 +30,27 @@ public class Post03Pojo extends JasonPlaceHolderBaseUrl {
                                     "id": 201
                                     }
      */
-
+    //set the url
     @Test
-    public  void post01(){
-
-        spec.pathParam("f","todos");
-
-        //set the expecteed data
-        JsonPlaceHolderPojo objPayload = new JsonPlaceHolderPojo(55,"Tidy your room",false);
-        System.out.println("expected data "+objPayload);
-        // 3 send post request and get the response
-
-        Response response = given().spec(spec).contentType(ContentType.JSON).body(objPayload).when().post("/{f}");
+    public void post03(){
+        // set the url
+        spec.pathParam("first","todos");
+        //set the expected data
+        Pojo03Class expobj = new Pojo03Class(55,"Tidy your room",false);
+        System.out.println("expected data "+expobj);
+        //send the post request and get the response
+        Response response = given().spec(spec).contentType(ContentType.JSON).
+                body(expobj).when().post("/{first}");
         response.prettyPrint();
 
-        // 4 do assertion
-
-        JsonPlaceHolderPojo actualData = response.as(JsonPlaceHolderPojo.class); //deserialisation
+        Pojo03Class actualData =response.as(Pojo03Class.class);
         System.out.println("actual data "+actualData);
 
-        assertEquals(objPayload.getUserId(),actualData.getUserId());
-        assertEquals(objPayload.getTitle(),actualData.getTitle());
-        assertEquals(objPayload.getCompleted(),actualData.getCompleted());
+        //do assertion
+
+        assertEquals(expobj.getUserId(),actualData.getUserId());
+        assertEquals(expobj.getTitle(),actualData.getTitle());
+        assertEquals(expobj.getCompleted(),actualData.getCompleted());
         assertEquals(201,response.getStatusCode());
 
 

@@ -1,8 +1,8 @@
 package get_requests;
 
 import base_urls.GoRestBaseUrl;
-import get_requests.pojos.GoRestDataBodyOuterPojoResponse;
-import get_requests.pojos.GoRestDataPojoInnerPojo;
+import pojos.pojos.GoRestDataBodyOuterPojoResponse;
+import pojos.pojos.GoRestDataPojoInnerPojo;
 import io.restassured.response.Response;
 import org.junit.Test;
 

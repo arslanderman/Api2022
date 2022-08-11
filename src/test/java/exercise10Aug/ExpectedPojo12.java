@@ -1,21 +1,28 @@
-package get_requests.pojos;
+package exercise10Aug;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class BookingPojo {
-
-   //  1) create private variables for every key (userId)
+public class ExpectedPojo12 {
+    /*
+     "firstname": "Jim",
+    "lastname": "Brown",
+    "totalprice": 111,
+    "depositpaid": true,
+    "bookingdates": {
+        "checkin": "2022-08-09",
+        "checkout": "2022-08-27"
+    },
+    "additionalneeds": "Breakfast"
+     */
     private String firstname;
     private String lastname;
     private Integer totalprice;
     private Boolean depositpaid;
-    private BookingDatesPojo bookingdates;
+    private Pojo12 bookingdates;
     private String additionalneeds;
 
-   // 2) create constructor with all parameters adn without any parameters
-
-    public BookingPojo(String firstname, String lastname, Integer totalprice, Boolean depositpaid, BookingDatesPojo bookingdates, String additionalneeds) {
+    public ExpectedPojo12(String firstname, String lastname, Integer totalprice, Boolean depositpaid, Pojo12 bookingdates, String additionalneeds) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.totalprice = totalprice;
@@ -24,10 +31,8 @@ public class BookingPojo {
         this.additionalneeds = additionalneeds;
     }
 
-    public BookingPojo() {
+    public ExpectedPojo12() {
     }
-
-    //3) create getters and setters
 
     public String getFirstname() {
         return firstname;
@@ -61,11 +66,11 @@ public class BookingPojo {
         this.depositpaid = depositpaid;
     }
 
-    public BookingDatesPojo getBookingdates() {
+    public Pojo12 getBookingdates() {
         return bookingdates;
     }
 
-    public void setBookingdates(BookingDatesPojo bookingdates) {
+    public void setBookingdates(Pojo12 bookingdates) {
         this.bookingdates = bookingdates;
     }
 
@@ -77,13 +82,9 @@ public class BookingPojo {
         this.additionalneeds = additionalneeds;
     }
 
-
-    //4) create to string() method
-
-
     @Override
     public String toString() {
-        return "BookingPojo{" +
+        return "expectedPojo12{" +
                 "firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", totalprice=" + totalprice +
